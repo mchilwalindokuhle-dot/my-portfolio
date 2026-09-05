@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hobbies - Lindokuhle Mchilwa</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">LM</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="hobbies.html" class="active">Hobbies</a></li>
+                <li><a href="goals.html">Goals</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-btn" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-section">
+            <div class="container">
+                <h2 class="page-title">My Hobbies &amp; Interests</h2>
+                <p class="section-subtitle">What I enjoy doing outside of my studies and work.</p>
+
+                <!-- Slideshow -->
+                <div class="slideshow-container">
+                    <div class="slideshow-wrapper">
+                        <div class="slide fade">
+                            <img src="images/hobby1.jpg" alt="Coding" />
+                        </div>
+                        <div class="slide fade">
+                            <img src="images/hobby2.jpg" alt="Reading" />
+                        </div>
+                        <div class="slide fade">
+                            <img src="images/hobby3.jpg" alt="Music" />
+                        </div>
+                        <div class="slide fade">
+                            <img src="images/hobby4.jpg" alt="Gaming" />
+                        </div>
+                    </div>
+                    <button class="slide-btn prev" id="prevSlide">&#10094;</button>
+                    <button class="slide-btn next" id="nextSlide">&#10095;</button>
+                </div>
+
+                <div class="hobbies-grid">
+                    <div class="hobby-card">
+                        <div class="hobby-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Coding</h3>
+                        <p>
+                            I love building web applications and solving problems through code.
+                            It's my passion and my career path.
+                        </p>
+                    </div>
+
+                    <div class="hobby-card">
+                        <div class="hobby-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Reading</h3>
+                        <p>
+                            I enjoy reading books on technology, entrepreneurship, and personal
+                            development to expand my knowledge.
+                        </p>
+                    </div>
+
+                    <div class="hobby-card">
+                        <div class="hobby-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>Music</h3>
+                        <p>
+                            Music is my escape. I enjoy listening to various genres and
+                            sometimes playing instruments.
+                        </p>
+                    </div>
+
+                    <div class="hobby-card">
+                        <div class="hobby-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Gaming</h3>
+                        <p>
+                            In my free time, I enjoy playing video games that challenge my
+                            strategic thinking and reflexes.
+                        </p>
+                    </div>
+
+                    <div class="hobby-card">
+                        <div class="hobby-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h3>Sports</h3>
+                        <p>
+                            Staying active is important to me. I enjoy playing soccer and
+                            going for runs to keep fit.
+                        </p>
+                    </div>
+
+                    <div class="hobby-card">
+                        <div class="hobby-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>Photography</h3>
+                        <p>
+                            I love capturing moments and exploring the world through a lens.
+                            Nature and portrait photography are my favorites.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="interests-table content-card">
+                    <h3>My Interests in Detail</h3>
+                    <table class="info-table">
+                        <tr>
+                            <td><strong>Category</strong></td>
+                            <td><strong>Specific Interest</strong></td>
+                            <td><strong>Why I Enjoy It</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Technology</td>
+                            <td>Web Development, AI</td>
+                            <td>Creating innovative solutions</td>
+                        </tr>
+                        <tr>
+                            <td>Entertainment</td>
+                            <td>Music, Gaming</td>
+                            <td>Relaxation and mental stimulation</td>
+                        </tr>
+                        <tr>
+                            <td>Fitness</td>
+                            <td>Soccer, Running</td>
+                            <td>Staying healthy and active</td>
+                        </tr>
+                        <tr>
+                            <td>Learning</td>
+                            <td>Reading, Online Courses</td>
+                            <td>Continuous personal growth</td>
+                        </tr>
+                        <tr>
+                            <td>Creative</td>
+                            <td>Photography</td>
+                            <td>Expressing creativity</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Lindokuhle Mchilwa. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

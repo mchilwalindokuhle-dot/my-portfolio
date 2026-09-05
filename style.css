@@ -1,0 +1,1341 @@
+ /* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+
+/* The * selector targets every single element on the page */
+* {
+    margin: 0;                    /* Remove the default outer space browsers add */
+    padding: 0;                   /* Remove the default inner space browsers add */
+    box-sizing: border-box;       /* Make width and height include padding and border */
+}
+
+/* :root is the highest level element. We store reusable values (CSS variables) here */
+:root {
+    --primary: #6C63FF;           /* Main purple brand colour */
+    --primary-dark: #5a52d5;      /* Darker purple used for hover effects */
+    --secondary: #FF6584;         /* Pink/red accent colour */
+    --dark: #1a1a2e;              /* Very dark navy colour for text and dark backgrounds */
+    --dark-secondary: #16213e;    /* Slightly lighter dark navy */
+    --light: #f8f9fa;             /* Very light grey background colour */
+    --white: #ffffff;             /* Pure white */
+    --gray: #6c757d;              /* Medium grey used for secondary text */
+    --light-gray: #e9ecef;        /* Light grey used for borders and button backgrounds */
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);        /* Soft shadow */
+    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.2);  /* Stronger shadow used on hover */
+    --border-radius: 16px;        /* Standard rounded corner size */
+    --transition: all 0.3s ease;  /* Smooth animation that lasts 0.3 seconds */
+}
+
+html {
+    scroll-behavior: smooth;      /* Makes the page scroll smoothly when clicking links */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;  /* Use the Poppins font, fallback to system sans-serif */
+    background-color: var(--light);      /* Light grey background */
+    color: var(--dark);                  /* Dark text colour */
+    line-height: 1.7;                    /* Comfortable space between lines of text */
+    transition: var(--transition);       /* Smooth colour changes when switching themes */
+}
+
+.container {
+    max-width: 1200px;            /* The content will never be wider than 1200px */
+    margin: 0 auto;               /* Centre the container horizontally */
+    padding: 0 24px;              /* Add 24px space on the left and right sides */
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+.navbar {
+    background: var(--white);     /* White background */
+    padding: 16px 0;              /* Vertical padding only */
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);  /* Soft shadow under the navbar */
+    position: sticky;             /* Sticks to the top of the screen when scrolling */
+    top: 0;                       /* Stick at the very top */
+    z-index: 1000;                /* Make sure it stays above other elements */
+    transition: var(--transition);
+}
+
+.nav-container {
+    display: flex;                /* Use flexbox layout */
+    justify-content: space-between; /* Put logo on the left and menu on the right */
+    align-items: center;          /* Centre items vertically */
+    flex-wrap: wrap;              /* Allow items to wrap on small screens */
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;             /* Bold text */
+    color: var(--primary);        /* Purple colour */
+    text-decoration: none;        /* Remove the underline from the link */
+    letter-spacing: -1px;         /* Slightly tighter letter spacing */
+}
+
+.nav-menu {
+    list-style: none;             /* Remove the default bullet points */
+    display: flex;                /* Arrange menu items in a row */
+    gap: 8px;                      /* Small space between menu items */
+    flex-wrap: wrap;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    font-size: 14px;
+    padding: 8px 16px;            /* Make the clickable area larger */
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--primary);        /* Purple text when hovered or active */
+    background: rgba(108, 99, 255, 0.1);  /* Very light purple background */
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;                    /* Space between the theme button and hamburger button */
+}
+
+.theme-btn,
+.menu-toggle {
+    background: var(--light-gray);
+    border: none;
+    padding: 10px 12px;
+    border-radius: 50%;           /* Make the buttons perfectly round */
+    cursor: pointer;
+    font-size: 18px;
+    transition: var(--transition);
+    color: var(--dark);
+}
+
+.theme-btn:hover,
+.menu-toggle:hover {
+    background: var(--primary);
+    color: white;
+    transform: rotate(20deg);     /* Slight rotation on hover for a fun effect */
+}
+
+.menu-toggle {
+    display: none;                /* Hidden on desktop. Shown only on mobile via media query */
+}
+
+/* ============================================
+   HERO SECTION (HOME PAGE)
+   ============================================ */
+
+.hero {
+    padding: 80px 0 60px;         /* Top padding 80px, bottom padding 60px */
+    min-height: 80vh;             /* At least 80% of the browser height */
+    display: flex;
+    align-items: center;          /* Centre content vertically */
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* Two equal columns */
+    gap: 60px;                       /* Space between the two columns */
+    align-items: center;
+}
+
+.hero-content .greeting {
+    display: inline-block;        /* Only as wide as the text */
+    background: rgba(108, 99, 255, 0.12);
+    color: var(--primary);
+    padding: 4px 16px;
+    border-radius: 20px;          /* Pill shape */
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.hero-content .highlight {
+    color: var(--primary);        /* Purple colour for part of the name */
+}
+
+.hero-content .tagline {
+    font-size: 18px;
+    color: var(--gray);
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+
+.hero-content .bio {
+    font-size: 16px;
+    color: var(--gray);
+    max-width: 480px;             /* Limit the width of the paragraph */
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.btn {
+    display: inline-flex;         /* Flex so icon and text stay aligned */
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border-radius: 50px;          /* Fully rounded (pill shape) */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);  /* Move the button up slightly */
+    box-shadow: 0 10px 25px rgba(108, 99, 255, 0.3);
+}
+
+.btn-secondary {
+    background: var(--light-gray);
+    color: var(--dark);
+}
+
+.btn-secondary:hover {
+    background: var(--dark);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.social-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;           /* Circle */
+    background: var(--light-gray);
+    color: var(--dark);
+    font-size: 18px;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-4px);  /* Lift the icon up on hover */
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-frame {
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 6px solid var(--primary);
+    box-shadow: 0 20px 60px rgba(108, 99, 255, 0.25);
+    animation: float 6s ease-in-out infinite;
+    background-color: #f0f0f0; /* Optional: light background if image doesn't fill the circle */
+}
+
+.profile-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;        /* Show full image */
+    object-position: center;    /* Keep it centered */
+}
+
+/* Keyframes define the floating animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }     /* Start and end at normal position */
+    50% { transform: translateY(-16px); }      /* Move up 16px in the middle */
+}
+
+/* ============================================
+   QUICK INFO CARDS
+   ============================================ */
+
+.quick-info {
+    padding: 40px 0 80px;
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* 4 equal columns */
+    gap: 24px;
+}
+
+.info-card {
+    background: var(--white);
+    padding: 28px 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.info-card:hover {
+    transform: translateY(-6px);          /* Lift the card up */
+    box-shadow: var(--shadow-hover);      /* Stronger shadow */
+}
+
+.info-card i {
+    font-size: 32px;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.info-card h4 {
+    font-size: 14px;
+    color: var(--gray);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.info-card p {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* ============================================
+   PAGE SECTIONS (Used on About, Education, etc.)
+   ============================================ */
+
+.page-section {
+    padding: 60px 0;              /* Vertical space for every major page section */
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    border-bottom: 4px solid var(--primary);  /* Purple underline */
+    padding-bottom: 12px;
+    display: inline-block;        /* Only as wide as the text */
+}
+
+.section-subtitle {
+    color: var(--gray);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+/* ============================================
+   ABOUT PAGE
+   ============================================ */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;  /* Image takes 1 part, text takes 2 parts */
+    gap: 50px;
+    align-items: start;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: var(--border-radius);
+    border: 4px solid var(--primary);
+    box-shadow: var(--shadow);
+}
+
+.about-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+}
+
+.about-content p {
+    color: var(--gray);
+    margin-bottom: 16px;
+}
+
+.about-details {
+    margin: 24px 0;
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;    /* Remove gaps between table cells */
+    background: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;             /* Keeps the rounded corners on the table */
+    box-shadow: var(--shadow);
+}
+
+.info-table tr {
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.info-table tr:last-child {
+    border-bottom: none;          /* No line under the last row */
+}
+
+.info-table td {
+    padding: 12px 20px;
+}
+
+.info-table td:first-child {
+    font-weight: 600;
+    width: 40%;
+    background: rgba(108, 99, 255, 0.05);  /* Very light purple background */
+}
+
+/* ============================================
+   EDUCATION PAGE
+   ============================================ */
+
+.education-timeline {
+    position: relative;
+    padding-left: 40px;           /* Space for the vertical line and icons */
+}
+
+.education-timeline::before {
+    content: '';                  /* Empty content used to create the vertical line */
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--primary);   /* Purple vertical timeline line */
+}
+
+.education-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-left: 30px;
+}
+
+.education-icon {
+    position: absolute;
+    left: -42px;                  /* Position the icon over the timeline line */
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+}
+
+.education-content {
+    background: var(--white);
+    padding: 24px 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.education-content h3 {
+    font-size: 1.3rem;
+    color: var(--primary);
+}
+
+.education-institution {
+    color: var(--gray);
+    font-weight: 500;
+}
+
+.education-date {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.education-content ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.education-content ul li {
+    color: var(--gray);
+    margin-bottom: 6px;
+}
+
+/* ============================================
+   SKILLS PAGE
+   ============================================ */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 3 columns */
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.skill-card {
+    background: var(--white);
+    padding: 24px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.skill-header i {
+    font-size: 32px;
+    color: var(--primary);
+}
+
+.skill-header h3 {
+    flex: 1;                      /* Take up the remaining space */
+    font-size: 1.1rem;
+}
+
+.skill-percent {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.skill-bar {
+    width: 100%;
+    height: 10px;
+    background: var(--light-gray); /* Background of the progress bar */
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.skill-progress {
+    height: 100%;
+    background: var(--primary);   /* The filled part of the progress bar */
+    border-radius: 10px;
+    transition: width 1.5s ease;  /* Smooth animation when the width changes */
+}
+
+.skill-description {
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+/* ============================================
+   CERTIFICATIONS PAGE
+   ============================================ */
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 columns */
+    gap: 30px;
+}
+
+.certification-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.certification-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.cert-icon {
+    font-size: 48px;
+    color: var(--primary);
+    margin-bottom: 16px;
+}
+
+.certification-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.cert-issuer {
+    color: var(--gray);
+    font-weight: 500;
+}
+
+.cert-date {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.cert-description {
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+.cert-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.cert-link:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   PROJECTS PAGE
+   ============================================ */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;             /* Keeps the image corners rounded */
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.project-image {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(108, 99, 255, 0.8);  /* Semi-transparent purple overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;                   /* Hidden by default */
+    transition: var(--transition);
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;                   /* Show the overlay when hovering the card */
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.project-tech {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.project-tech span {
+    background: rgba(108, 99, 255, 0.1);
+    color: var(--primary);
+    padding: 4px 12px;
+    border-radius: 20px;          /* Pill-shaped tags */
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.project-info p {
+    color: var(--gray);
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+.project-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   HOBBIES PAGE
+   ============================================ */
+
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.hobby-card {
+    background: var(--white);
+    padding: 30px 24px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.hobby-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.hobby-icon {
+    font-size: 48px;
+    color: var(--primary);
+    margin-bottom: 16px;
+}
+
+.hobby-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.hobby-card p {
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   GOALS PAGE
+   ============================================ */
+
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.goal-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.goal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.goal-icon {
+    font-size: 48px;
+    color: var(--primary);
+    margin-bottom: 16px;
+}
+
+.goal-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+}
+
+.goal-card p {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.goal-card ul {
+    padding-left: 20px;
+}
+
+.goal-card ul li {
+    color: var(--gray);
+    margin-bottom: 6px;
+}
+
+/* ============================================
+   CONTACT PAGE
+   ============================================ */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* Form on the left, info on the right */
+    gap: 50px;
+}
+
+.contact-form-container {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.form-group label i {
+    color: var(--primary);
+    margin-right: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--light-gray);
+    border-radius: 8px;
+    font-family: inherit;         /* Use the same font as the rest of the site */
+    font-size: 1rem;
+    transition: var(--transition);
+    background: var(--light);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;                /* Remove the default browser outline */
+    border-color: var(--primary); /* Purple border when the field is focused */
+}
+
+.form-group textarea {
+    resize: vertical;             /* User can only change the height */
+    min-height: 120px;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.contact-card {
+    background: var(--white);
+    padding: 24px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.contact-card i {
+    font-size: 32px;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.contact-card h4 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.contact-card p {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   CONTENT CARDS
+   ============================================ */
+
+.content-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.content-card h3 {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: 16px;
+}
+
+.content-card ul,
+.content-card ol {
+    padding-left: 20px;
+}
+
+.content-card ul li,
+.content-card ol li {
+    color: var(--gray);
+    margin-bottom: 6px;
+}
+
+/* ============================================
+   SCROLL TO TOP BUTTON
+   ============================================ */
+
+.scroll-top-btn {
+    position: fixed;              /* Always stays in the same place on the screen */
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(108, 99, 255, 0.4);
+    transition: var(--transition);
+    display: none;                /* Hidden by default. Shown with JavaScript when scrolled */
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.scroll-top-btn:hover {
+    transform: translateY(-5px);
+    background: var(--primary-dark);
+}
+
+/* ============================================
+   TYPING EFFECT
+   ============================================ */
+
+#typing-text {
+    color: var(--primary);
+    border-right: 3px solid var(--primary);  /* The blinking cursor */
+    padding-right: 5px;
+    animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }  /* Make the cursor disappear every half cycle */
+}
+
+/* ============================================
+   SHOW / HIDE BUTTON
+   ============================================ */
+
+.toggle-info-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transition);
+    margin-bottom: 12px;
+}
+
+.toggle-info-btn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.02);       /* Slightly enlarge the button */
+}
+
+.toggle-info-btn.active {
+    background: var(--secondary); /* Change colour when the content is visible */
+}
+
+.hidden-content {
+    display: none;                /* Hidden by default */
+    padding: 16px 20px;
+    background: var(--light-gray);
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+/* ============================================
+   SLIDESHOW
+   ============================================ */
+
+.slideshow-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 40px;          /* Centre the slideshow */
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--dark);
+}
+
+.slideshow-wrapper {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;                /* Only one slide is shown at a time (controlled by JavaScript) */
+    width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);  /* Centre the buttons vertically */
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 16px 20px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.slide-btn:hover {
+    background: rgba(108, 99, 255, 0.8);
+}
+
+.prev {
+    left: 16px;                   /* Previous button on the left */
+}
+
+.next {
+    right: 16px;                  /* Next button on the right */
+}
+
+.fade {
+    animation: fadeEffect 1.5s ease;
+}
+
+@keyframes fadeEffect {
+    0% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+/* ============================================
+   DIGITAL CLOCK
+   ============================================ */
+
+.digital-clock {
+    background: var(--dark);
+    color: #00ff88;               /* Bright green like old digital clocks */
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;  /* Monospace font for digital look */
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
+/* These styles only apply when the body has the class "dark-mode" */
+body.dark-mode {
+    background-color: #1a1a2e;
+    color: #eee;
+}
+
+body.dark-mode .navbar {
+    background-color: #16213e;
+}
+
+body.dark-mode .logo {
+    color: #e94560;               /* Pink/red accent in dark mode */
+}
+
+body.dark-mode .nav-menu a {
+    color: #eee;
+}
+
+body.dark-mode .nav-menu a:hover,
+body.dark-mode .nav-menu a.active {
+    color: #e94560;
+    background: rgba(233, 69, 96, 0.1);
+}
+
+body.dark-mode .info-card,
+body.dark-mode .skill-card,
+body.dark-mode .hobby-card,
+body.dark-mode .goal-card,
+body.dark-mode .certification-card,
+body.dark-mode .project-card,
+body.dark-mode .contact-card,
+body.dark-mode .education-content,
+body.dark-mode .content-card,
+body.dark-mode .contact-form-container {
+    background: #16213e;
+    border-color: #2a2a4e;
+}
+
+body.dark-mode .info-table {
+    background: #16213e;
+}
+
+body.dark-mode .info-table td:first-child {
+    background: rgba(233, 69, 96, 0.1);
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background: #1a1a3e;
+    color: #eee;
+    border-color: #2a2a4e;
+}
+
+body.dark-mode .hero-content .bio,
+body.dark-mode .about-content p,
+body.dark-mode .hobby-card p,
+body.dark-mode .goal-card ul li,
+body.dark-mode .education-content ul li,
+body.dark-mode .project-info p {
+    color: #ccc;
+}
+
+body.dark-mode .footer {
+    background: #16213e;
+    color: #aaa;
+}
+
+body.dark-mode .digital-clock {
+    background: #0a0a1a;
+}
+
+body.dark-mode .hidden-content {
+    background: #1a1a3e;
+}
+
+body.dark-mode .slideshow-container {
+    background: #0a0a1a;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+    background: var(--dark);
+    color: #aaa;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer .container p {
+    margin-bottom: 4px;
+}
+
+.footer .container p:last-child {
+    margin-bottom: 0;             /* No extra space after the last paragraph */
+}
+
+/* ============================================
+   RESPONSIVE DESIGN (Media Queries)
+   ============================================ */
+
+/* Tablets and smaller laptops */
+@media (max-width: 1024px) {
+    .skills-grid,
+    .hobbies-grid,
+    .goals-grid {
+        grid-template-columns: repeat(2, 1fr);  /* 2 columns instead of 3 */
+    }
+}
+
+/* Tablets and mobile landscape */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;            /* Hide the menu by default on mobile */
+        width: 100%;
+        flex-direction: column;   /* Stack the menu items vertically */
+        align-items: center;
+        padding: 16px 0;
+    }
+
+    .nav-menu.show {
+        display: flex;            /* Show the menu when JavaScript adds the "show" class */
+    }
+
+    .menu-toggle {
+        display: block;           /* Show the hamburger button on mobile */
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;  /* Single column layout */
+        text-align: center;
+    }
+
+    .hero-content .bio {
+        margin: 0 auto 28px;      /* Centre the bio text */
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .profile-frame {
+        width: 250px;
+        height: 250px;
+    }
+
+    .info-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .about-image {
+        display: flex;
+        justify-content: center;
+    }
+
+    .about-image img {
+        max-width: 250px;
+    }
+
+    .skills-grid,
+    .hobbies-grid,
+    .goals-grid,
+    .certifications-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;  /* Single column on mobile */
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .education-timeline {
+        padding-left: 20px;
+    }
+
+    .education-icon {
+        width: 40px;
+        height: 40px;
+        left: -32px;
+        font-size: 16px;
+    }
+
+    .education-content {
+        padding: 16px 20px;
+    }
+
+    .slideshow-wrapper {
+        height: 250px;
+    }
+
+    .slide-btn {
+        padding: 10px 14px;
+        font-size: 18px;
+    }
+
+    .digital-clock {
+        font-size: 1.1rem;
+        padding: 8px 16px;
+    }
+
+    .scroll-top-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .info-cards {
+        grid-template-columns: 1fr;  /* One card per row */
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-buttons {
+        flex-direction: column;   /* Stack the buttons vertically */
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;              /* Full-width buttons */
+        justify-content: center;
+    }
+
+    .profile-frame {
+        width: 200px;
+        height: 200px;
+    }
+}

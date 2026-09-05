@@ -1,0 +1,151 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lindokuhle Mchilwa - Portfolio</title>
+    
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">LM</a>
+            
+            <!-- Navigation Menu -->
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="goals.html">Goals</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <!-- Theme button + Hamburger button -->
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-btn" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container hero-container">
+                
+                <!-- Left side - Text content -->
+                <div class="hero-content">
+                    <span class="greeting">👋 Hello, I'm</span>
+                    <h1>Lindokuhle <span class="highlight">Mchilwa</span></h1>
+                    
+                    <!-- Typing effect text -->
+                    <p class="tagline">
+                        <span id="typing-text">Full-Stack Developer</span>
+                    </p>
+                    
+                    <p class="bio">
+                        I am an Advanced Diploma student at <strong>Walter Sisulu University</strong>,
+                        passionate about technology and innovation. I aspire to become a
+                        <strong>Full-Stack Developer</strong> and <strong>Tech Entrepreneur</strong>.
+                    </p>
+                    
+                    <!-- Digital Clock -->
+                    <div class="digital-clock" id="digital-clock"></div>
+                    
+                    <!-- Buttons -->
+                    <div class="hero-buttons">
+                        <a href="about.html" class="btn btn-primary">
+                            <i class="fas fa-user"></i> About Me
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i> Contact
+                        </a>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <a href="https://github.com/Mchilwa" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/lindokuhle-mchilwa-290181361" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://wa.me/27656827832" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:lindokuhlemchilwa@gmail.com" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right side - Profile Image -->
+                <div class="hero-image">
+                    <div class="profile-frame">
+                        <img src="images/profile.jpg" alt="Lindokuhle Mchilwa" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Info Cards -->
+        <section class="quick-info">
+            <div class="container">
+                <div class="info-cards">
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Hometown</h4>
+                        <p>Libode, Eastern Cape</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>Education</h4>
+                        <p>Advanced Diploma in Applications Development</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-bullseye"></i>
+                        <h4>Career Goal</h4>
+                        <p>Full-Stack Developer &amp; Tech Entrepreneur</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-university"></i>
+                        <h4>Institution</h4>
+                        <p>Walter Sisulu University</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Lindokuhle Mchilwa. All Rights Reserved.</p>
+            <p>Made with <i class="fas fa-heart" style="color: #e94560;"></i> for APT 4 Assignment</p>
+        </div>
+    </footer>
+
+    <!-- Link to JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
