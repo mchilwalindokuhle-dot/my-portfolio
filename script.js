@@ -4,11 +4,7 @@
 
 // Listen for the event that fires when the HTML document is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Show a browser popup with a welcome message
-    // The \' is used to escape the apostrophe so it doesn't break the string
-    alert('Welcome to my portfolio website! I\'m Lindokuhle Mchilwa.');
-    
-    // Print a message to the browser console (useful for debugging)
+    // alert('Welcome to my portfolio website! I\'m Lindokuhle Mchilwa.');  ← removed
     console.log('Website loaded successfully!');
 });
 

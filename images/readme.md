@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This is a fully responsive multi-page personal portfolio website created as part of the **APT 4 Assignment**.  
+This is a fully responsive multi-page personal portfolio website created as part of the **by Lindokuhle Mchilwa**.  
 The website showcases my personal information, education background, skills, certifications, projects, hobbies, and future goals.
 
 The website is built using **HTML5**, **CSS3**, and **JavaScript**, and includes modern interactive features such as dark mode, typing effect, digital clock, image slideshow, and form validation.
