@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -24,8 +24,12 @@
                 <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button>
-                <button class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></button>
+                <button id="theme-toggle" class="theme-btn" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </nav>
@@ -39,7 +43,7 @@
                 <div class="contact-grid">
                     <!-- Contact Form -->
                     <div class="contact-form-container">
-                        <form onsubmit="return validateForm()">
+                        <form action="https://formspree.io/f/xzereell" method="POST">
                             <div class="form-group">
                                 <label for="name"><i class="fas fa-user"></i> Full Name</label>
                                 <input type="text" id="name" name="name" placeholder="Enter your full name" required>
@@ -52,8 +56,11 @@
 
                             <div class="form-group">
                                 <label for="message"><i class="fas fa-comment"></i> Message</label>
-                                <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+                                <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
                             </div>
+
+                            <!-- Optional: Redirect back after sending -->
+                            <input type="hidden" name="_next" value="https://mchilwalindokuhle-dot.github.io/my-portfolio/contact.html">
 
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-paper-plane"></i> Send Message
@@ -92,6 +99,7 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 Lindokuhle Mchilwa. All Rights Reserved.</p>
+            <p>Made with <i class="fas fa-heart" style="color: #e94560;"></i> by Lindokuhle Mchilwa</p>
         </div>
     </footer>
 
