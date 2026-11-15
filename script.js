@@ -14,26 +14,49 @@ document.addEventListener('DOMContentLoaded', function() {
 // ============================================
 
 // Get the button that has the id "theme-toggle"
+// ============================================
+// 2. LIGHT/DARK MODE TOGGLE (with memory)
+// ============================================
+
 const themeToggleBtn = document.getElementById('theme-toggle');
 
-// Only continue if the button actually exists on the page
-if (themeToggleBtn) {
-    // When the user clicks the theme button...
-    themeToggleBtn.addEventListener('click', function() {
-        // Add the class "dark-mode" if it is not there, or remove it if it is already there
-        document.body.classList.toggle('dark-mode');
-        
-        // Check if the body now has the "dark-mode" class
-        if (document.body.classList.contains('dark-mode')) {
-            // Change the button icon to a sun (meaning "click to switch to light mode")
+// Function to apply the theme
+function applyTheme(theme) {
+    if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+        if (themeToggleBtn) {
             themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-            // Change the tooltip text that appears when hovering
             themeToggleBtn.title = 'Switch to Light Mode';
-        } else {
-            // Change the button icon back to a moon
+        }
+    } else {
+        document.body.classList.remove('dark-mode');
+        if (themeToggleBtn) {
             themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
-            // Change the tooltip text
             themeToggleBtn.title = 'Switch to Dark Mode';
+        }
+    }
+}
+
+// When the page loads, check if the user previously chose a theme
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+});
+
+// When the user clicks the theme button
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', function() {
+        // Check the current theme
+        const isDark = document.body.classList.contains('dark-mode');
+        
+        if (isDark) {
+            // Switch to light mode
+            applyTheme('light');
+            localStorage.setItem('theme', 'light');   // Save the choice
+        } else {
+            // Switch to dark mode
+            applyTheme('dark');
+            localStorage.setItem('theme', 'dark');    // Save the choice
         }
     });
 }
